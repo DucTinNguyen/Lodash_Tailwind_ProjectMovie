@@ -1,7 +1,9 @@
 
 import { Carousel, Radio } from 'antd';
-import React, { useState } from 'react';
-import {useSelector} from 'react-redux'
+import React, { useState,useEffect } from 'react';
+import {useSelector, useDispatch} from 'react-redux'
+import { getCarouselAction } from '../../../../redux/action/CarouselAction';
+import axios from 'axios'
 const contentStyle = {
     height: '600px',
     color: '#fff',
@@ -16,6 +18,18 @@ const contentStyle = {
 export default function HomeCarousel() {
    
     let {carousel} = useSelector(state => state.CarouselReducer);
+    let dispatch = useDispatch();
+    
+    useEffect(  ()=>{
+
+        dispatch(getCarouselAction);
+    }
+    
+    
+    
+    
+    ,[])
+        
     const renderCarousel = () => {
         return carousel.map((item,index)=>{
             return <div key={index}>

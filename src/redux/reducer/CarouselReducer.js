@@ -1,3 +1,5 @@
+import { SETTING_CAROUSEL } from "../type/CarouselType"
+
 const  stateDefault = {
     carousel:[
         {
@@ -10,6 +12,9 @@ const  stateDefault = {
 export const CarouselReducer = (state = stateDefault, action) =>{
     switch(action.type)
     {
+        case SETTING_CAROUSEL:{
+            return {...state,carousel: action.carousel}
+        }
         default: return {...state}
     }
 }
