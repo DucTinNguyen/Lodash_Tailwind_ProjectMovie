@@ -68,3 +68,5 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Rule call API and dispatch in redux-thunk:
+- We should call API in action of reduxThunk(with a function) instead do it in component to advoid adjusting when task repeat one more.Middleware reduxThunk accept dispatch a function(method dispatch will be done by middleware).
