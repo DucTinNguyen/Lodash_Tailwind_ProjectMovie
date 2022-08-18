@@ -1,32 +1,35 @@
 
 import { Carousel, Radio } from 'antd';
 import React, { useState } from 'react';
+import {useSelector} from 'react-redux'
 const contentStyle = {
-    height: '400px',
+    height: '600px',
     color: '#fff',
     lineHeight: '160px',
     textAlign: 'center',
-    background: '#364d79',
+    backgroundColor: '#364d79',
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: '100%',
+    backgroundPosition: 'center',
 };
 
 export default function HomeCarousel() {
-    
+   
+    let {carousel} = useSelector(state => state.CarouselReducer);
+    const renderCarousel = () => {
+        return carousel.map((item,index)=>{
+            return <div key={index}>
+            <div style={{...contentStyle,backgroundImage:`url(${item.hinhAnh})`}}>
+                <img src={item.hinhAnh} className="w-full opacity-0" alt={item.hinhAnh} />
+            </div>
+        </div>
+        })
+    }
     return (
         <div>
             <>
                 <Carousel>
-                    <div>
-                        <h3 style={contentStyle}>1</h3>
-                    </div>
-                    <div>
-                        <h3 style={contentStyle}>2</h3>
-                    </div>
-                    <div>
-                        <h3 style={contentStyle}>3</h3>
-                    </div>
-                    <div>
-                        <h3 style={contentStyle}>4</h3>
-                    </div>
+                    {renderCarousel()}
                 </Carousel>
             </>
         </div>
