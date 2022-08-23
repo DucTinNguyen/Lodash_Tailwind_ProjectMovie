@@ -24,10 +24,6 @@ export default function HomeCarousel() {
 
         dispatch(getCarouselAction);
     }
-    
-    
-    
-    
     ,[])
         
     const renderCarousel = () => {

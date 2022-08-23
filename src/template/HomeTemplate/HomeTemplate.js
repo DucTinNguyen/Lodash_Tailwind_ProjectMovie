@@ -8,8 +8,7 @@ export const HomeTemplate = (props) =>{
     return <Route {...restProps} render={(propsRouter) =>{
         return <>
             <Header />
-            <HomeCarousel />
-            <Component />
+            <Component {...propsRouter} />
            <Footer/>
         </>
     }}
