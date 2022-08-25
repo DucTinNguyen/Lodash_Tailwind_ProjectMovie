@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
@@ -6,10 +6,15 @@ import reportWebVitals from './reportWebVitals';
 import 'antd/dist/antd.css';
 import { Provider } from 'react-redux';
 import {store} from './redux/configStore'
+//import lib multiple language
+import './i18n'
 
 ReactDOM.render(
     <Provider store={store}>
-        <App />
+        <Suspense fallback='en'>
+            <App />
+        </Suspense>
+        
     </Provider>,
         document.getElementById('root')
 

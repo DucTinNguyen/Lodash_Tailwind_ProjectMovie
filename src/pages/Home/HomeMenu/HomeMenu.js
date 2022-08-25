@@ -1,12 +1,14 @@
 import React,{memo} from 'react'
 import { Radio, Space, Tabs } from 'antd';
 import moment from 'moment';
-
+import history from '../../../App'
+import { NavLink } from 'react-router-dom';
 const { TabPane } = Tabs;
 const tabPosition = 'left';
 const borderStyle = {
     border: 'solid 1px rgb(224,13,122)',
-    padding: '2px 4px'
+    padding: '2px 4px',
+    cursor: 'pointer'
 }
 function HomeMenu(props) {
     
@@ -30,7 +32,7 @@ function HomeMenu(props) {
                                 <h2 className="text-xl">{phim.tenPhim}</h2>
                                 <ul className="grid grid-cols-5 gap-1">
                                     {phim.lstLichChieuTheoPhim.slice(0,5).map((time,index)=>{
-                                        return <li key={index} style={borderStyle}>{moment(time.ngayChieuGioChieu).format('dd hh::mm A')}</li>
+                                        return <NavLink to ={`/checkout/${time.maLichChieu}`} key={index} style={borderStyle}>{moment(time.ngayChieuGioChieu).format('dd hh::mm A')}</NavLink>
                                     })}
                                 </ul>
                             </div>
